@@ -1,0 +1,56 @@
+pack_id: lmcp-template-pack
+pack_name: LMCP Template Pack
+version: 0.1.0
+status: template
+
+purpose: >
+  Package curated, hashed, versioned AI-agent skills for a bounded local workflow,
+  customer delivery, or proprietary skill bundle.
+
+curation_boundary:
+  label: Curation Stack
+  description: >
+    Replace this with the customer's bounded workflow label, such as
+    Curation Stack, Proprietary Workflow, Agent Boundary Pack, or Repo Audit Pack.
+
+license:
+  pack_license: commercial-template
+  skill_contents: see_each_skill_manifest
+  redistribution: prohibited_without_permission
+
+authority:
+  local_pack_is_working_authority: true
+  hosted_copy_is_mirror_only: true
+  mcp_adapter_is_read_only_first: true
+  mutation_requires_approval: true
+
+indexes:
+  hash_ledger: indexes/hash-ledger.jsonl
+  binding_index: indexes/binding-index.jsonl
+  registry: indexes/registry.jsonl
+  tag_index: indexes/tag-index.json
+
+allowed_default_behavior:
+  - list_skills
+  - search_skills
+  - get_registry_record
+  - get_manifest
+  - build_context_packet_from_selected_skills
+
+blocked_default_behavior:
+  - execute_skill_scripts
+  - install_packages
+  - mutate_customer_files
+  - overwrite_skills
+  - delete_skills
+  - trust_remote_content
+  - expose_secrets
+
+skills_root: skills
+receipts_root: receipts
+claim_boundary: CLAIM_BOUNDARY.md
+
+customer_notes:
+  - This pack is local-first.
+  - Do not load every skill into context.
+  - Use indexes first, selected manifests second, and full skill bodies only after selection.
