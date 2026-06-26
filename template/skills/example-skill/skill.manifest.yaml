@@ -1,0 +1,55 @@
+id: example-skill
+name: Example Skill
+version: 0.1.0
+status: example
+
+domains:
+  - template
+
+capability_classes:
+  - packaging-example
+
+binding_markers:
+  - has_skill_md
+  - has_manifest
+  - example
+
+inputs:
+  - name: task
+    type: text
+    required: true
+
+outputs:
+  - bounded_recommendation
+  - receipt_note
+
+side_effects:
+  default: none
+  writes: []
+
+authority_surfaces:
+  - none
+
+requires:
+  runtime: []
+  network: false
+
+compatible_surfaces:
+  - generic-agent
+  - local-mcp
+
+relations:
+  upstream: []
+  downstream: []
+  complements: []
+
+origin:
+  type: template
+  confidence: high
+  original_paths: []
+
+claim_boundary: >
+  Example skill for LMCP packaging only. It is not a production capability.
+
+license:
+  skill_content: commercial-template
